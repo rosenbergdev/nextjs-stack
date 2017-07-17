@@ -1,0 +1,46 @@
+{
+  "name": "nextjs-stack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "babel-loader": "7.1.1",
+    "babel-plugin-wrap-in-js": "1.1.1",
+    "express": "4.15.3",
+    "lodash": "4.17.4",
+    "next": "3.0.1-beta.9",
+    "next-redux-wrapper": "1.2.0",
+    "react": "15.6.1",
+    "react-dom": "15.6.1",
+    "react-redux": "5.0.5",
+    "redux": "3.7.2",
+    "redux-devtools-extension": "2.13.2",
+    "redux-thunk": "2.2.0"
+  },
+  "devDependencies": {
+    "babel-preset-react-optimize": "1.0.1",
+    "babel-plugin-transform-class-properties": "6.24.1",
+    "babel-plugin-transform-decorators-legacy": "1.3.4",
+    "babel-plugin-transform-react-display-name": "6.25.0",
+    "babel-preset-es2015": "6.24.1",
+    "babel-preset-es2015-native-modules": "6.9.4",
+    "babel-preset-react": "6.24.1",
+    "babel-preset-stage-0": "6.24.1",
+    "babel-plugin-css-modules-transform": "1.2.7"
+  },
+  "scripts": {
+    "dev": "node server.js",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rosenbergdev/nextjs-stack.git"
+  },
+  "author": "Martin Rosenberg <rosenberg.martin9@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rosenbergdev/nextjs-stack/issues"
+  },
+  "homepage": "https://github.com/rosenbergdev/nextjs-stack#readme"
+}
