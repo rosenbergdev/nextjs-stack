@@ -14,6 +14,16 @@ app.prepare().then(() => {
     return app.render(req, res, '/about', params)
   })
 
+  server.get('/loadAuth', (req, res) => {
+    console.log('loading auth')
+
+    res.json(
+      (req.session && req.session.user) || {
+        id: 'dsads'
+      }
+    )
+  })
+
   server.get('*', (req, res) => {
     return handle(req, res)
   })

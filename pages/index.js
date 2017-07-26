@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { Header } from 'components/layout'
-import { initStore } from '../redux/store'
-import withRedux from 'next-redux-wrapper'
-import { test } from 'redux/modules/app'
 
-@withRedux(initStore, null, { test })
+import { test } from 'redux/modules/app'
+import { loadUser } from 'redux/modules/auth'
+import { page } from 'services/helpers'
+
+@page()
 export default class App extends Component {
   static propTypes = {}
 
