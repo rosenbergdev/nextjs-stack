@@ -16,8 +16,8 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        App root
         <Header />
+        <h2>Home</h2>
         <button onClick={this.handleClick}>test</button>
       </div>
     )

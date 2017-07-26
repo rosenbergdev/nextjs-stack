@@ -11,8 +11,8 @@ export default class About extends Component {
     return (
       <div>
         <Header />
-        About <br />
-        {get(this.props, 'url.query.id')}
+        <h2>About page</h2>
+        route param: {get(this.props, 'url.query.id')}
       </div>
     )
   }

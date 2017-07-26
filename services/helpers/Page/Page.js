@@ -29,9 +29,7 @@ function decorator(config = {}) {
         try {
           const json = await res.json()
           store.dispatch(loadUser(json))
-        } catch (error) {
-          console.log('Calling loadAuth failed')
-        }
+        } catch (error) {}
       }
 
       render() {

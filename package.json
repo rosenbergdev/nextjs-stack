@@ -34,7 +34,8 @@
   "scripts": {
     "dev": "next build && node server.js",
     "build": "next build",
-    "start": "NODE_ENV=production PORT=3000 node server.js"
+    "start": "NODE_ENV=production PORT=80 node server.js",
+    "start-local": "NODE_ENV=production PORT=3000 node server.js"
   },
   "repository": {
     "type": "git",
