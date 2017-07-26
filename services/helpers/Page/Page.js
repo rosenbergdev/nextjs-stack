@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import withRedux from 'next-redux-wrapper'
 import { get } from 'lodash'
+import { fetch } from 'utils/fetch'
+// import
 
 import { loadUser } from 'redux/modules/auth'
 import { initStore } from 'redux/store'
@@ -20,10 +22,16 @@ function decorator(config = {}) {
           return
         }
 
-        const res = await fetch('http://localhost:3000/loadAuth')
-        const json = await res.json()
+        const res = await fetch('/loadAuth', {
+          self: true
+        })
 
-        store.dispatch(loadUser(json))
+        try {
+          const json = await res.json()
+          store.dispatch(loadUser(json))
+        } catch (error) {
+          console.log('Calling loadAuth failed')
+        }
       }
 
       render() {

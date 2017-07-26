@@ -1,0 +1,6 @@
+
+          window.__NEXT_REGISTER_PAGE('/', function() {
+            var comp = module.exports=webpackJsonp([4],{373:function(e,t,n){e.exports=n(374)},374:function(e,t,n){"use strict";function l(e){return e&&e.__esModule?e:{default:e}}Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var u,a,r=n(11),o=l(r),d=n(7),f=l(d),c=n(8),i=l(c),p=n(12),s=l(p),_=n(13),h=l(_),v=n(5),k=l(v),m=n(173),y=(n(175),n(115),n(174)),C=(u=(0,y.page)())(a=function(e){function t(){var e,n,l,u;(0,f.default)(this,t);for(var a=arguments.length,r=Array(a),d=0;d<a;d++)r[d]=arguments[d];return n=l=(0,s.default)(this,(e=t.__proto__||(0,o.default)(t)).call.apply(e,[this].concat(r))),l.handleClick=function(){l.props.test(20)},u=n,(0,s.default)(l,u)}return(0,h.default)(t,e),(0,i.default)(t,[{key:"render",value:function(){return k.default.createElement("div",null,"App root",k.default.createElement(m.Header,null),k.default.createElement("button",{onClick:this.handleClick},"test"))}}]),t}(v.Component))||a;t.default=C}},[373]);
+            return { page: comp.default }
+          })
+        
