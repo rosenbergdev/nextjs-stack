@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { get } from 'lodash'
 import { Header } from 'components/layout'
-import { page } from 'services/helpers'
+import { page } from 'services/hocs'
 
 @page()
 export default class About extends Component {

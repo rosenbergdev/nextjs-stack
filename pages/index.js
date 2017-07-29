@@ -4,9 +4,7 @@ import withRedux from 'next-redux-wrapper'
 import { Header } from 'components/layout'
 import { sageDemoTest } from 'redux/modules/app'
 import { loadUser } from 'redux/modules/auth'
-import { page } from 'services/helpers'
-
-import { connect } from 'services/helpers'
+import { page, connect } from 'services/hocs'
 
 @page()
 @connect(null, { sageDemoTest })
@@ -22,7 +20,7 @@ export default class App extends Component {
       <div>
         <Header />
         <h2>Home</h2>
-        <button onClick={this.handleClick}>test</button>
+        <button onClick={this.handleClick}>Call saga</button>
       </div>
     )
   }
