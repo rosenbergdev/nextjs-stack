@@ -5,6 +5,7 @@ import nextReduxSaga from 'next-redux-saga'
 import createSagaMiddleware from 'redux-saga'
 
 import rootSaga from './saga'
+
 const reducer = require('./reducer').default
 
 const sagaMiddleware = createSagaMiddleware()

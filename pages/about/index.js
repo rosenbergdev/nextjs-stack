@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { get } from 'lodash'
-import { Header } from 'components/layout'
-import { page } from 'services/hocs'
+import { Container, Header, Title } from 'components/layout'
+import { page } from 'helpers/hocs'
 
 @page()
 export default class About extends Component {
@@ -9,11 +9,12 @@ export default class About extends Component {
 
   render() {
     return (
-      <div>
+      <Container>
+        <Title>About page</Title>
         <Header />
         <h2>About page</h2>
         route param: {get(this.props, 'url.query.id')}
-      </div>
+      </Container>
     )
   }
 }

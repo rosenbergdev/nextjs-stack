@@ -5,9 +5,11 @@
   "main": "index.js",
   "dependencies": {
     "babel-loader": "7.1.1",
+    "babel-plugin-styled-components": "1.1.7",
     "babel-plugin-wrap-in-js": "1.1.1",
     "dotenv": "4.0.0",
     "express": "4.15.3",
+    "grid-styled": "2.0.0-10",
     "ip": "1.1.5",
     "isomorphic-fetch": "2.2.1",
     "lodash": "4.17.4",
@@ -19,7 +21,9 @@
     "react-redux": "5.0.5",
     "redux": "3.7.2",
     "redux-devtools-extension": "2.13.2",
-    "redux-saga": "0.15.6"
+    "redux-form": "7.0.3",
+    "redux-saga": "0.15.6",
+    "styled-components": "2.1.1"
   },
   "devDependencies": {
     "babel-eslint": "7.2.3",

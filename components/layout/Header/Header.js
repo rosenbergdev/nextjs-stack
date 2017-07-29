@@ -1,19 +1,20 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Link from 'next/link'
 
-export default class Header extends Component {
-  static propTypes = {}
+import { List, ListItem } from 'components/layout'
 
-  render() {
-    return (
-      <div>
-        <Link href="/" prefetch>
-          <a>Home</a>
-        </Link>{' '}
-        <Link href="/about?id=10" as="/about/10" prefetch>
-          <a>About</a>
-        </Link>
-      </div>
-    )
-  }
-}
+const Header = () =>
+  <List>
+    <ListItem>
+      {' '}<Link href="/" prefetch>
+        <a>Home</a>
+      </Link>
+    </ListItem>
+    <ListItem>
+      {' '}<Link href="/about?id=10" as="/about/10" prefetch>
+        <a>About</a>
+      </Link>
+    </ListItem>
+  </List>
+
+export default Header

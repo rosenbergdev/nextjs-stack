@@ -1,15 +1,17 @@
 import React, { Component } from 'react'
-import withRedux from 'next-redux-wrapper'
+import { PropTypes } from 'prop-types'
+// import { Box } from 'grid-styled'
 
-import { Header } from 'components/layout'
+import { Container, Header, Title, Button } from 'components/layout'
 import { sageDemoTest } from 'redux/modules/app'
-import { loadUser } from 'redux/modules/auth'
-import { page, connect } from 'services/hocs'
+import { page, connect } from 'helpers/hocs'
 
 @page()
 @connect(null, { sageDemoTest })
 export default class App extends Component {
-  static propTypes = {}
+  static propTypes = {
+    sageDemoTest: PropTypes.func.isRequired
+  }
 
   handleClick = () => {
     this.props.sageDemoTest(20)
@@ -17,11 +19,12 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
+      <Container>
+        <Title>Home page</Title>
         <Header />
         <h2>Home</h2>
-        <button onClick={this.handleClick}>Call saga</button>
-      </div>
+        <Button onClick={this.handleClick}>Call saga</Button>
+      </Container>
     )
   }
 }
