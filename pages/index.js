@@ -1,16 +1,20 @@
 import React, { Component } from 'react'
-import { Header } from 'components/layout'
+import withRedux from 'next-redux-wrapper'
 
-import { test } from 'redux/modules/app'
+import { Header } from 'components/layout'
+import { sageDemoTest } from 'redux/modules/app'
 import { loadUser } from 'redux/modules/auth'
 import { page } from 'services/helpers'
 
+import { connect } from 'services/helpers'
+
 @page()
+@connect(null, { sageDemoTest })
 export default class App extends Component {
   static propTypes = {}
 
   handleClick = () => {
-    this.props.test(20)
+    this.props.sageDemoTest(20)
   }
 
   render() {
