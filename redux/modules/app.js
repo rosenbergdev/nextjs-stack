@@ -1,4 +1,4 @@
-import { all, call, put, takeLatest } from 'redux-saga/effects'
+import { put, takeLatest } from 'redux-saga/effects'
 
 // ACTION TYPES
 const SAGA_DEMO = 'nextjs/app/SAGA_DEMO'
@@ -36,12 +36,12 @@ export function sageDemoTest(id) {
 }
 
 // SAGA
-export function* runTestWatcher() {
-  yield takeLatest(SAGA_DEMO, runTestWorker)
-}
-
 function* runTestWorker() {
   yield put({
     type: SAGA_DEMO_SUCCESS
   })
+}
+
+export function* runTestWatcher() {
+  yield takeLatest(SAGA_DEMO, runTestWorker)
 }

@@ -1,9 +1,11 @@
 import get from 'isomorphic-fetch'
+
+require('es6-promise').polyfill()
 // const ip = require('ip')
 
 const dev = process.env.NODE_ENV !== 'production'
 
-export function fetch(url, opts = {}) {
+export default function fetch(url, opts = {}) {
   const isServer = typeof window === 'undefined'
 
   if (!isServer && opts.self) {

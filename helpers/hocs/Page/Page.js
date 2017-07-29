@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import withRedux from 'next-redux-wrapper'
 import { get } from 'lodash'
-import { fetch } from 'utils/fetch'
+import fetch from 'utils/fetch'
 
 import { loadUser } from 'redux/modules/auth'
 import { initStore } from 'redux/store'
@@ -27,8 +27,12 @@ function decorator() {
 
         try {
           const json = await res.json()
-          store.dispatch(loadUser(json))
-        } catch (error) {}
+          if (json) {
+            store.dispatch(loadUser(json))
+          }
+        } catch (error) {
+          console.log('err', error)
+        }
       }
 
       render() {

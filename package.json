@@ -4,10 +4,13 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "axios": "0.16.2",
     "babel-loader": "7.1.1",
     "babel-plugin-styled-components": "1.1.7",
     "babel-plugin-wrap-in-js": "1.1.1",
+    "body-parser": "1.17.2",
     "dotenv": "4.0.0",
+    "es6-promise": "4.1.1",
     "express": "4.15.3",
     "grid-styled": "2.0.0-10",
     "ip": "1.1.5",
@@ -44,7 +47,7 @@
     "eslint-plugin-react": "7.1.0"
   },
   "scripts": {
-    "dev": "next build && node server.js",
+    "dev": "node server.js",
     "build": "next build",
     "start": "NODE_ENV=production PORT=80 node server.js",
     "start-local": "NODE_ENV=production PORT=3000 node server.js"

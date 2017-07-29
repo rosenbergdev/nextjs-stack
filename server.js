@@ -1,6 +1,5 @@
 const express = require('express')
 const next = require('next')
-const ip = require('ip')
 
 const dev = process.env.NODE_ENV !== 'production'
 const port = process.env.PORT || 3000
@@ -19,7 +18,7 @@ app.prepare().then(() => {
   server.get('/loadAuth', (req, res) => {
     console.log('loading auth')
 
-    res.json((req.session && req.session.user) || {})
+    res.json((req.session && req.session.user) || { name: 'Martin' })
   })
 
   server.get('*', (req, res) => {
