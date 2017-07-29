@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Head from 'next/head'
 import { PropTypes } from 'prop-types'
 // import { Box } from 'grid-styled'
 
@@ -20,6 +21,9 @@ export default class App extends Component {
   render() {
     return (
       <Container>
+        <Head>
+          <title>Home page</title>
+        </Head>
         <Title>Home page</Title>
         <Header />
         <h2>Home</h2>
