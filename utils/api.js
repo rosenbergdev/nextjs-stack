@@ -14,6 +14,7 @@ export default function api(
   let protocol = isServer ? 'http://' : 'https://'
   let headers = {}
   const cookie = isServer && opts.req.get('cookie')
+  let port = ''
 
   if (url.indexOf('api/') === 0) {
     // always https
@@ -22,9 +23,10 @@ export default function api(
 
   if (config.dev) {
     protocol = 'http://'
+    port = config.port
   }
 
-  const apiUrl = `${protocol}${config.host}:${config.port}${url}`
+  const apiUrl = `${protocol}${config.host}:${port}${url}`
 
   if (cookie) {
     headers = { Cookie: cookie }

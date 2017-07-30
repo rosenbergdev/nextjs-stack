@@ -18,9 +18,9 @@ function hoc(params = {}) {
     )
     class Page extends Component {
       static async getInitialProps({ req, res, store }) {
-        // const isServer = typeof window === 'undefined'
+        const isServer = typeof window === 'undefined'
 
-        if (get(store.getState(), 'auth.loaded') && params.restricted) {
+        if (!isServer && !params.restricted) {
           // user load was already called
           return
         }
