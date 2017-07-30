@@ -42,6 +42,6 @@ function* runTestWorker() {
   })
 }
 
-export function* runTestWatcher() {
+export function* runTestWatchers() {
   yield takeLatest(SAGA_DEMO, runTestWorker)
 }

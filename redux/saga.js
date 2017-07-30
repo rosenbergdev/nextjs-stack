@@ -1,8 +1,8 @@
 import { all, call } from 'redux-saga/effects'
 
-import { runTestWatcher } from 'redux/modules/app'
-import { runLoadUserWatcher } from 'redux/modules/auth'
+import { runTestWatchers } from './modules/app'
+import { runLoadUserWatchers } from './modules/auth/auth-sagas'
 
 export default function* rootSaga() {
-  yield all([call(runTestWatcher), call(runLoadUserWatcher)])
+  yield all([call(runTestWatchers), call(runLoadUserWatchers)])
 }

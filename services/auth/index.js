@@ -1,5 +1,6 @@
 module.exports = app => {
   app.post('/save-user', (req, res) => {
+    console.log('save user')
     req.session.user = req.body || {}
     // req.session.save()
 
@@ -12,6 +13,7 @@ module.exports = app => {
   })
 
   app.get('/load-auth', (req, res) => {
+    console.log('load auth')
     res.json((req.session && req.session.user) || {})
   })
 }

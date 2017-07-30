@@ -1,7 +1,8 @@
 const ip = require('ip')
 
 const config = {
-  host: process.env.NODE_ENV !== 'production' ? 'localhost' : ip.address(),
+  // host: process.env.NODE_ENV !== 'production' ? 'localhost' : ip.address(),
+  host: process.env.NODE_ENV !== 'production' ? 'localhost' : 'localhost',
   port: process.env.PORT || 3000,
   dev: process.env.NODE_ENV !== 'production'
 }

@@ -17,23 +17,27 @@ function hoc(params = {}) {
       { loadUser }
     )
     class Page extends Component {
-      static async getInitialProps({ req, store }) {
-        const isServer = typeof window === 'undefined'
+      static async getInitialProps({ req, res, store }) {
+        // const isServer = typeof window === 'undefined'
 
-        if (!get(store.getState(), 'auth.loaded') && params.restricted) {
-          Router.push('/restricted')
-        }
-
-        if (get(store.getState(), 'auth.loaded') || !isServer) {
-          // user loaded or called from client
+        if (get(store.getState(), 'auth.loaded') && params.restricted) {
+          // user load was already called
           return
         }
 
-        const res = await api('/load-auth', { req })
+        const response = await api('/load-auth', { req })
 
         try {
-          if (res.data) {
-            store.dispatch(loadUser(res.data))
+          if (response.data) {
+            if (!get(response, 'data.name') && params.restricted) {
+              if (res) {
+                res.redirect('/restricted')
+                return
+              }
+              Router.push('/restricted')
+            }
+
+            store.dispatch(loadUser(response.data))
           }
         } catch (error) {
           console.log('err', error)
