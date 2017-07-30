@@ -13,3 +13,4 @@ Minimalistic boilerplate based on Next.js framework
 - Redux data management - redux-form, redux-sagas
 - CSS - styled-components, grid-styled
 - ESlint - extend airbnb configuration
+- Helmet - managing meta tags

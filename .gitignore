@@ -1,6 +1,6 @@
 # build output
-dist
-.next
+dist/
+.next/
 
 .idea/
 node_modules/
