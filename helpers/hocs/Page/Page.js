@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import withRedux from 'next-redux-wrapper'
+import Router from 'next/router'
 import { get } from 'lodash'
-import api from 'utils/api'
 
+import api from 'utils/api'
 import { loadUser } from 'redux/modules/auth'
 import { initStore } from 'redux/store'
 
-function decorator() {
+function hoc(params = {}) {
   return ComposedComponent => {
     @withRedux(
       initStore,
@@ -19,7 +20,12 @@ function decorator() {
       static async getInitialProps({ req, store }) {
         const isServer = typeof window === 'undefined'
 
-        if (get(store.getState(), 'auth.user.id') || !isServer) {
+        if (!get(store.getState(), 'auth.loaded') && params.restricted) {
+          Router.push('/restricted')
+        }
+
+        if (get(store.getState(), 'auth.loaded') || !isServer) {
+          // user loaded or called from client
           return
         }
 
@@ -42,4 +48,4 @@ function decorator() {
   }
 }
 
-export default decorator
+export default hoc

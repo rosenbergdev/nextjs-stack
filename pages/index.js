@@ -53,7 +53,7 @@ export default class App extends Component {
         <Header />
         <h2>Home</h2>
         <Box mb={10}>
-          <Button onClick={this.handleClick}>Call saga demo dwatcher</Button>
+          <Button onClick={this.handleClick}>Call saga demo watcher</Button>
         </Box>
         <Box mb={10} mt={30}>
           Name stored in redis: <strong>{this.props.user.name}</strong>
