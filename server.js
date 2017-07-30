@@ -16,8 +16,6 @@ app.prepare().then(() => {
   })
 
   server.get('/loadAuth', (req, res) => {
-    console.log('loading auth')
-
     res.json((req.session && req.session.user) || { name: 'Martin' })
   })
 

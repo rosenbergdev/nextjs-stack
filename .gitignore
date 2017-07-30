@@ -1,8 +1,11 @@
+# build output
+dist
+.next
+
 .idea/
 node_modules/
 static/
 coverage/
-dist/
 *.iml
 webpack-assets.json
 webpack-stats.json
