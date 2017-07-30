@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import withRedux from 'next-redux-wrapper'
 import { get } from 'lodash'
-import fetch from 'utils/fetch'
+import api from 'utils/api'
 
 import { loadUser } from 'redux/modules/auth'
 import { initStore } from 'redux/store'
@@ -16,19 +16,18 @@ function decorator() {
       { loadUser }
     )
     class Page extends Component {
-      static async getInitialProps({ store }) {
-        if (get(store.getState(), 'auth.user.id')) {
+      static async getInitialProps({ req, store }) {
+        const isServer = typeof window === 'undefined'
+
+        if (get(store.getState(), 'auth.user.id') || !isServer) {
           return
         }
 
-        const res = await fetch('/loadAuth', {
-          self: true
-        })
+        const res = await api('/load-auth', { req })
 
         try {
-          const json = await res.json()
-          if (json) {
-            store.dispatch(loadUser(json))
+          if (res.data) {
+            store.dispatch(loadUser(res.data))
           }
         } catch (error) {
           console.log('err', error)

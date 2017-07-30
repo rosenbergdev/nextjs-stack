@@ -1,23 +1,27 @@
 const express = require('express')
 const next = require('next')
+const bodyParser = require('body-parser')
+const compression = require('compression')
 
 const dev = process.env.NODE_ENV !== 'production'
 const port = process.env.PORT || 3000
 const app = next({ dev })
 const handle = app.getRequestHandler()
 
+const Redis = require('./services/redis')
+const Auth = require('./services/auth')
+const Routes = require('./services/routes')
+
 app.prepare().then(() => {
   const server = express()
 
-  server.get('/about/:id', (req, res) => {
-    const params = { id: req.params.id }
+  server.use(bodyParser.json())
+  server.use(bodyParser.urlencoded({ extended: false }))
+  server.use(compression())
 
-    return app.render(req, res, '/about', params)
-  })
-
-  server.get('/loadAuth', (req, res) => {
-    res.json((req.session && req.session.user) || { name: 'Martin' })
-  })
+  Redis(server)
+  Auth(server)
+  Routes(server, app)
 
   server.get('*', (req, res) => {
     return handle(req, res)

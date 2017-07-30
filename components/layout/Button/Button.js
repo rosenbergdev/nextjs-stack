@@ -2,19 +2,22 @@ import React from 'react'
 import { PropTypes } from 'prop-types'
 import styled from 'styled-components'
 
-const Button = ({ children, className, onClick }) =>
-  <button className={className} onClick={onClick}>
+const Button = ({ children, className, onClick, type }) =>
+  <button type={type} className={className} onClick={onClick}>
     {children}
   </button>
 
 Button.propTypes = {
   children: PropTypes.node.isRequired,
-  onClick: PropTypes.func.isRequired,
+  type: PropTypes.string,
+  onClick: PropTypes.func,
   className: PropTypes.string
 }
 
 Button.defaultProps = {
-  className: ''
+  className: '',
+  type: 'submit',
+  onClick: undefined
 }
 
 const StyledButton = styled(Button)`
