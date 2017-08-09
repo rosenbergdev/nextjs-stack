@@ -5,3 +5,5 @@ module.exports = (app, appNext) => {
     return appNext.render(req, res, '/about', params)
   })
 }
+
+// https://github.com/zeit/next.js/blob/master/examples/page-transitions/routes.js

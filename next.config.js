@@ -1,4 +1,6 @@
+/* eslint-disable */
 var webpack = require('webpack')
+var SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
@@ -14,6 +16,20 @@ module.exports = {
       })
     )
 
+    config.plugins.push(
+      new SWPrecacheWebpackPlugin({
+        verbose: true,
+        staticFileGlobsIgnorePatterns: [/\.next\//],
+        runtimeCaching: [
+          {
+            handler: 'networkFirst',
+            urlPattern: /^https?.*/
+          }
+        ]
+      })
+    )
+
     return config
   }
 }
+/* eslint-enable */
