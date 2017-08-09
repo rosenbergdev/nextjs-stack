@@ -15,7 +15,7 @@ const Header = () =>
           </Link>
         </ListItem>
         <ListItem>
-          <Link href="/about?id=10" as="/about/10" prefetch>
+          <Link href="/about?id=10" as="/about/10">
             <a>About</a>
           </Link>
         </ListItem>
