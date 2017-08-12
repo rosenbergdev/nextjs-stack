@@ -8,7 +8,7 @@ import { Box } from 'grid-styled'
 import { Modal } from 'containers/misc'
 import { Container, Header, Title, Button } from 'components/layout'
 import { Input } from 'components/fields'
-import { sageDemoTest, saveUser } from 'redux/modules'
+import { sageDemoTest, saveUser, modal } from 'redux/modules'
 import { page } from 'helpers/hocs'
 
 @page()
@@ -16,7 +16,7 @@ import { page } from 'helpers/hocs'
   ({ auth }) => ({
     user: auth.user
   }),
-  { sageDemoTest, saveUser }
+  { sageDemoTest, saveUser, modal }
 )
 @reduxForm({
   form: 'test'
@@ -25,6 +25,7 @@ export default class App extends Component {
   static propTypes = {
     sageDemoTest: PropTypes.func.isRequired,
     handleSubmit: PropTypes.func.isRequired,
+    modal: PropTypes.func.isRequired,
     user: PropTypes.object,
     saveUser: PropTypes.func.isRequired
   }
@@ -68,7 +69,11 @@ export default class App extends Component {
 
         <h2>Modal</h2>
 
-        <Modal />
+        <Button onClick={() => this.props.modal({ id: 'modal-demo-id' })}>
+          Open Modal
+        </Button>
+
+        <Modal id="modal-demo-id" />
       </Container>
     )
   }

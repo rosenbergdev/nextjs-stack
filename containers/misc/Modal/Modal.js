@@ -1,40 +1,45 @@
 import React, { Component } from 'react'
-// import { PropTypes } from 'prop-types'
-// import { get } from 'lodash'
+import { PropTypes } from 'prop-types'
+import { connect } from 'react-redux'
 import ReactModal from 'react-modal'
 
+import { modal as modalAction } from 'redux/modules'
+
+@connect(
+  ({ app }) => ({
+    modal: app.modal
+  }),
+  { modalAction }
+)
 export default class Modal extends Component {
-  static propTypes = {}
+  static propTypes = {
+    modal: PropTypes.object.isRequired,
+    modalAction: PropTypes.func.isRequired,
+    id: PropTypes.string.isRequired
+  }
 
   state = {
     open: false
   }
 
-  componentDidMount = () => {
-    console.log('here')
-  }
-
-  handleClick = () => {
-    this.setState({
-      open: true
-    })
+  componentWillReceiveProps(nextProps) {
+    if (this.props.modal.id !== nextProps.modal.id && !nextProps.modal.id) {
+      this.handleClose()
+    }
   }
 
   handleClose = () => {
-    this.setState({
-      open: false
-    })
+    this.props.modalAction({ id: null })
   }
 
   render() {
+    const { modal, id } = this.props
+
     return (
-      <div>
-        <button onClick={this.handleClick}>Open modal</button>
-        <ReactModal isOpen={this.state.open} contentLabel="Modal">
-          <h1>Modal Content</h1>
-          <button onClick={this.handleClose}>Close modal</button>
-        </ReactModal>
-      </div>
+      <ReactModal isOpen={id === modal.id} contentLabel="Modal">
+        <h1>Modal Content</h1>
+        <button onClick={this.handleClose}>Close modal</button>
+      </ReactModal>
     )
   }
 }
