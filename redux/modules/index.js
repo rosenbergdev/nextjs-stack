@@ -2,4 +2,4 @@
 export { loadUser, saveUser, logout } from './auth/auth-reducer'
 
 // App actions
-export { sageDemoTest, modal } from './app/app-reducer'
+export { sageDemoTest, modal, notification } from './app/app-reducer'

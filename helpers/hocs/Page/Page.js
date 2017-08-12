@@ -3,6 +3,7 @@ import withRedux from 'next-redux-wrapper'
 import Router from 'next/router'
 import { get } from 'lodash'
 
+import { Notifications } from 'containers/misc'
 import api from 'utils/api'
 import { loadUser } from 'redux/modules'
 import { initStore } from 'redux/store'
@@ -61,7 +62,12 @@ function hoc(params = {}) {
       // }
 
       render() {
-        return <ComposedComponent {...this.props} />
+        return (
+          <div>
+            <ComposedComponent {...this.props} />
+            <Notifications />
+          </div>
+        )
       }
     }
     return Page
