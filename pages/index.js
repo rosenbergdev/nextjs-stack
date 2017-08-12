@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
 import { Box } from 'grid-styled'
 
+import { Modal } from 'containers/misc'
 import { Container, Header, Title, Button } from 'components/layout'
 import { Input } from 'components/fields'
 import { sageDemoTest, saveUser } from 'redux/modules'
@@ -64,6 +65,10 @@ export default class App extends Component {
             <Button>Save user to Redis</Button>
           </form>
         </Box>
+
+        <h2>Modal</h2>
+
+        <Modal />
       </Container>
     )
   }
