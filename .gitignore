@@ -16,3 +16,4 @@ tsrc/
 .env
 webpack/dlls/manifests/vendor.json
 /.next
+/.vscode/settings.json
