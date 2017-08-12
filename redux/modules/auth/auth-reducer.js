@@ -57,3 +57,23 @@ export default function reducer(state = initialState, action = {}) {
       return state
   }
 }
+
+export function loadUser(user) {
+  return {
+    type: LOAD_USER,
+    user
+  }
+}
+
+export function saveUser(user) {
+  return {
+    type: SAVE_USER,
+    user
+  }
+}
+
+export function logout() {
+  return {
+    type: LOGOUT_USER
+  }
+}

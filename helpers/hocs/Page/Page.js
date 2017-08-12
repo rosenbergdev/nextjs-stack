@@ -4,7 +4,7 @@ import Router from 'next/router'
 import { get } from 'lodash'
 
 import api from 'utils/api'
-import { loadUser } from 'redux/modules/auth'
+import { loadUser } from 'redux/modules'
 import { initStore } from 'redux/store'
 
 function hoc(params = {}) {
@@ -44,21 +44,21 @@ function hoc(params = {}) {
         }
       }
 
-      componentDidMount() {
-        if ('serviceWorker' in navigator) {
-          navigator.serviceWorker
-            .register('/service-worker.js')
-            .then(registration => {
-              console.log(
-                'service worker registration successful',
-                registration
-              )
-            })
-            .catch(err => {
-              console.warn('service worker registration failed', err.message)
-            })
-        }
-      }
+      // componentDidMount() {
+      //   if ('serviceWorker' in navigator) {
+      //     navigator.serviceWorker
+      //       .register('/service-worker.js')
+      //       .then(registration => {
+      //         console.log(
+      //           'service worker registration successful',
+      //           registration
+      //         )
+      //       })
+      //       .catch(err => {
+      //         console.warn('service worker registration failed', err.message)
+      //       })
+      //   }
+      // }
 
       render() {
         return <ComposedComponent {...this.props} />

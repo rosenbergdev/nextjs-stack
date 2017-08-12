@@ -9,27 +9,7 @@ import {
   SAVE_USER_SUCCESS,
   LOGOUT_USER,
   LOGOUT_USER_SUCCESS
-} from './auth-types'
-
-export function loadUser(user) {
-  return {
-    type: LOAD_USER,
-    user
-  }
-}
-
-export function saveUser(user) {
-  return {
-    type: SAVE_USER,
-    user
-  }
-}
-
-export function logout() {
-  return {
-    type: LOGOUT_USER
-  }
-}
+} from 'redux/modules/auth/auth-types'
 
 // SAGAS
 function* runLoadUserWorker(action) {
@@ -75,7 +55,7 @@ function* runLogoutUserWorker() {
   }
 }
 
-export function* runLoadUserWatchers() {
+export default function* runLoadUserWatchers() {
   yield all([
     takeLatest(LOAD_USER, runLoadUserWorker),
     takeLatest(SAVE_USER, runSaveUserWorker),

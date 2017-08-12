@@ -7,8 +7,7 @@ import { Box } from 'grid-styled'
 
 import { Container, Header, Title, Button } from 'components/layout'
 import { Input } from 'components/fields'
-import { sageDemoTest } from 'redux/modules/app'
-import { saveUser } from 'redux/modules/auth'
+import { sageDemoTest, saveUser } from 'redux/modules'
 import { page } from 'helpers/hocs'
 
 @page()
