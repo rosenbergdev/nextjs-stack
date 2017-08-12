@@ -1,7 +1,6 @@
 import { put, takeLatest } from 'redux-saga/effects'
 
-const SAGA_DEMO = 'nextjs/app/SAGA_DEMO'
-const SAGA_DEMO_SUCCESS = 'nextjs/app/SAGA_DEMO_SUCCESS'
+import { SAGA_DEMO, SAGA_DEMO_SUCCESS } from 'redux/modules/app/app-types'
 
 function* runTestWorker() {
   yield put({
