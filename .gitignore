@@ -5,6 +5,7 @@ dist/
 
 .idea/
 node_modules/
+.vscode/
 coverage/
 *.iml
 webpack-assets.json
