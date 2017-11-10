@@ -9,6 +9,7 @@ import { Modal } from 'containers/misc'
 import { Container, Header, Title, Button } from 'components/layout'
 import { page } from 'helpers/hocs'
 import { modal, notification, sageDemoTest } from 'redux/modules'
+import { ErrorComponent, ErrorBoundary } from 'components/misc'
 
 const LoadedDynamicComponent = dynamic(
   import('components/misc/DynamicComponent/DynamicComponent')
@@ -55,6 +56,12 @@ export default class Examples extends Component {
         <Box mb={10}>
           <Button onClick={this.handleClickSaga}>Call saga</Button>
         </Box>
+
+        <h3>Error handling</h3>
+        <ErrorComponent />
+        <ErrorBoundary>
+          <ErrorComponent />
+        </ErrorBoundary>
 
         <h3>Async component load</h3>
         <Box mb={30} mt={10}>

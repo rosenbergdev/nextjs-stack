@@ -1,5 +1,7 @@
 import axios from 'axios'
-import config from 'appConfig'
+import config from 'app-config'
+
+// find better and more robust solution
 
 export default function api(
   url,
@@ -23,7 +25,7 @@ export default function api(
 
   if (config.dev) {
     protocol = 'http://'
-    port = config.port
+    port = config.port || process.env.PORT
   }
 
   const apiUrl = `${protocol}${config.host}:${port}${url}`

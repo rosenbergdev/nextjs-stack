@@ -32,10 +32,10 @@ function hoc(params = {}) {
           if (response.data) {
             if (!get(response, 'data.name') && params.restricted) {
               if (res) {
-                res.redirect('/restricted')
+                res.redirect('/forbidden')
                 return
               }
-              Router.push('/restricted')
+              Router.push('/forbidden')
             }
 
             store.dispatch(loadUser(response.data))
@@ -44,22 +44,6 @@ function hoc(params = {}) {
           console.log('err', error)
         }
       }
-
-      // componentDidMount() {
-      //   if ('serviceWorker' in navigator) {
-      //     navigator.serviceWorker
-      //       .register('/service-worker.js')
-      //       .then(registration => {
-      //         console.log(
-      //           'service worker registration successful',
-      //           registration
-      //         )
-      //       })
-      //       .catch(err => {
-      //         console.warn('service worker registration failed', err.message)
-      //       })
-      //   }
-      // }
 
       render() {
         return (

@@ -1,6 +1,8 @@
 /* eslint-disable */
 var webpack = require('webpack')
 var SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
+var path = require('path')
+var glob = require('glob')
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
@@ -27,6 +29,37 @@ module.exports = {
           }
         ]
       })
+    )
+
+    config.module.rules.push(
+      {
+        test: /\.(css|scss)/,
+        loader: 'emit-file-loader',
+        options: {
+          name: 'dist/[path][name].[ext]'
+        }
+      },
+      {
+        test: /\.css$/,
+        use: ['babel-loader', 'raw-loader', 'postcss-loader']
+      },
+      {
+        test: /\.s(a|c)ss$/,
+        use: [
+          'babel-loader',
+          'raw-loader',
+          'postcss-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              includePaths: ['static/styles', 'node_modules']
+                .map(d => path.join(__dirname, d))
+                .map(g => glob.sync(g))
+                .reduce((a, c) => a.concat(c), [])
+            }
+          }
+        ]
+      }
     )
 
     return config
