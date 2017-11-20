@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Head from 'next/head'
 
-import { Container, Header, Title } from 'components/layout'
+import { Container, Header, Title, Icon } from 'components/layout'
 import { page } from 'helpers/hocs'
 
 @page()
@@ -13,7 +13,9 @@ export default class App extends Component {
           <title>Home page</title>
         </Head>
         <Header dynamicContent={<Title>Hello</Title>} />
-        <p>Meh</p>
+        <p>
+          <Icon ico="chat" />
+        </p>
       </Container>
     )
   }

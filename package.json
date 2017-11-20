@@ -46,6 +46,8 @@
     "sass-loader": "^6.0.6",
     "styled-components": "2.2.3",
     "superagent": "3.8.1",
+    "svg-sprite-generator": "^0.0.7",
+    "svgo": "^1.0.3",
     "sw-precache-webpack-plugin": "0.11.4"
   },
   "devDependencies": {
@@ -72,7 +74,9 @@
     "dev": "node server.js",
     "build": "next build",
     "start": "NODE_ENV=production PORT=80 node server.js",
-    "start-local": "NODE_ENV=production PORT=3000 node server.js"
+    "start-local": "NODE_ENV=production PORT=3000 node server.js",
+    "generate:icons":
+      "svgo -f static/icons/ --enable='removeUselessStrokeAndFill, removeUnknownsAndDefaults' && svg-sprite-generate -d static/icons/ -o static/icons/sprite.svg"
   },
   "repository": {
     "type": "git",
