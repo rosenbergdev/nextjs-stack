@@ -14,6 +14,7 @@ npm-debug.log
 .happypack
 tsrc/
 .env
+.env.production
 webpack/dlls/manifests/vendor.json
 /.next
 /.vscode/settings.json

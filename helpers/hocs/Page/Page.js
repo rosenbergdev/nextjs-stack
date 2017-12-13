@@ -26,7 +26,9 @@ function hoc(params = {}) {
           return
         }
 
-        const response = await api('/load-auth', { req })
+        // put logic here to load user only if not loaded yet
+
+        const response = await api('/load-auth', { req, internal: true })
 
         try {
           if (response.data) {

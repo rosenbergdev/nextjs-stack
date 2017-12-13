@@ -73,7 +73,8 @@
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
-    "start": "NODE_ENV=production PORT=80 node server.js",
+    "start": "node server.js",
+    "now-start": "node server.js",
     "start-local": "NODE_ENV=production PORT=3000 node server.js",
     "generate:icons":
       "svgo -f static/icons/ --enable='removeUselessStrokeAndFill, removeUnknownsAndDefaults' && svg-sprite-generate -d static/icons/ -o static/icons/sprite.svg"
@@ -81,6 +82,11 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rosenbergdev/nextjs-stack.git"
+  },
+  "now": {
+    "name": "nextjs",
+    "alias": "dev",
+    "dotenv": ".env.production"
   },
   "author": "Martin Rosenberg <rosenberg.martin9@gmail.com>",
   "license": "ISC",

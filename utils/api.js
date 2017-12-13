@@ -8,7 +8,8 @@ export default function api(
   opts = {
     isomorphic: false,
     method: 'get',
-    data: undefined
+    data: undefined,
+    internal: false
   }
 ) {
   const isServer = typeof window === 'undefined'
@@ -28,7 +29,11 @@ export default function api(
     port = config.port || process.env.PORT
   }
 
-  const apiUrl = `${protocol}${config.host}:${port}${url}`
+  let apiUrl = `${protocol}${config.host}:${port}${url}`
+
+  if (!config.dev && opts.internal) {
+    apiUrl = `${protocol}${config.host}${url}`
+  }
 
   if (cookie) {
     headers = { Cookie: cookie }
