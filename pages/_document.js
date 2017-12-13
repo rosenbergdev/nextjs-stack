@@ -1,8 +1,8 @@
 import React from 'react'
 import Document, { Head, Main, NextScript } from 'next/document'
-
 import { ServerStyleSheet } from 'styled-components'
 import Helmet from 'react-helmet'
+import stylesheet from 'static/styles/index.scss'
 
 export default class MyDocument extends Document {
   static async getInitialProps(...args) {
@@ -78,6 +78,9 @@ export default class MyDocument extends Document {
           <meta name="theme-color" content="#ffffff" />
         </Head>
         <body className="custom_class" {...this.helmetBodyAttrComponents}>
+          {/* eslint-disable */}
+          <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+          {/* eslint-enable */}
           {this.props.customValue}
           {main}
           <NextScript />

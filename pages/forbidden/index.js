@@ -10,21 +10,13 @@ import { page } from 'helpers/hocs'
 import { saveUser } from 'redux/modules'
 import { Input } from 'components/fields'
 
-@page({
-  restricted: true
-})
-@connect(
-  ({ auth }) => ({
-    user: auth.user
-  }),
-  { saveUser }
-)
+@page()
+@connect(null, { saveUser })
 @reduxForm({
-  form: 'test'
+  form: 'login'
 })
-export default class Secret extends Component {
+export default class Restricted extends Component {
   static propTypes = {
-    user: PropTypes.object.isRequired,
     saveUser: PropTypes.func.isRequired,
     handleSubmit: PropTypes.func.isRequired
   }
@@ -39,16 +31,12 @@ export default class Secret extends Component {
     return (
       <Container>
         <Head>
-          <title>Restricted page</title>
+          <title>Restricted access</title>
         </Head>
 
-        <Header dynamicContent={<Title>Restricted page</Title>} />
+        <Header dynamicContent={<Title>Restricted access</Title>} />
 
-        <h3>Redis</h3>
-
-        <Box mb={10} mt={30}>
-          Name stored in redis: <strong>{this.props.user.name}</strong>
-        </Box>
+        <h3>Forbidden</h3>
 
         <Box mb={10} mt={30}>
           <form onSubmit={handleSubmit(this.handleSaveUser)}>

@@ -27,7 +27,8 @@ function* runSaveUserWorker(action) {
   try {
     const res = yield call(api, '/save-user', {
       method: 'post',
-      data: action.user
+      data: action.user,
+      internal: true
     })
 
     yield put({
@@ -42,7 +43,8 @@ function* runSaveUserWorker(action) {
 function* runLogoutUserWorker() {
   try {
     yield call(api, '/logout', {
-      method: 'post'
+      method: 'post',
+      internal: true
     })
 
     Router.push('/')
